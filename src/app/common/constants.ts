@@ -17,8 +17,16 @@ export const Sort_Value = [
     }
 ];
 export const SORT_VALUE = {
-    "A": "A",
-    "B": "B",
-    "C": "C",
-    "D": "D",
+    A: "A",
+    B: "B",
+    C: "C",
+    D: "D",
+}
+export const SUMMARY_PAGE = {
+    TOTAL_CONFIRMED_KEY: "TotalConfirmed",
+    TOTAL_DEATHS_KEY: "TotalDeaths",
+    NEW_RECOVERED_KEY: "NewRecovered"
+}
+export const LIST_COUNTRY = {
+    WIDTH_DIALOG: '250px'
 }

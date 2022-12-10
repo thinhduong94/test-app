@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SORT_VALUE } from 'src/app/common/constants';
+import { SORT_VALUE, SUMMARY_PAGE } from 'src/app/common/constants';
 import { SummaryMock } from 'src/app/mock/summary';
 import { CountryModel } from 'src/app/model/country.model';
 import { SummaryModel } from 'src/app/model/summary.model';
@@ -38,18 +38,21 @@ export class SummaryComponent implements OnInit {
     } 
   }
   private mostTotalConfirmedCases() {
-    this.contries = this.originalResult.Countries.sort((a,b)=>b.TotalConfirmed - a.TotalConfirmed);
+    this.contries = this.sortProperty(this.originalResult.Countries, SUMMARY_PAGE.TOTAL_CONFIRMED_KEY);
   }
   private highestNumberOfDeaths() {
-    this.contries = this.originalResult.Countries.sort((a,b)=>b.TotalDeaths - a.TotalDeaths);
+    this.contries = this.sortProperty(this.originalResult.Countries, SUMMARY_PAGE.TOTAL_DEATHS_KEY);
   }
   private leastNumberOfRecoveredCases() {
-    this.contries = this.originalResult.Countries.sort((a,b)=>b.NewRecovered - a.NewRecovered);
+    this.contries = this.sortProperty(this.originalResult.Countries, SUMMARY_PAGE.NEW_RECOVERED_KEY);
+  }
+  private sortProperty(array = [], key = '') {
+    return array.sort((a,b)=>b[key] - a[key]);
   }
   private getSummary() {
     this.showLoading = true;
-    this.countryService.getSummary().subscribe(result=>{
-      const {Countries = [], Message = ''} = result || {}
+    this.countryService.getSummary().subscribe((result)=>{
+      const {Countries = [], Message = ''} = result || {};
       if(Message.length > 0) {
         this.message = Message;
         (result as any) = SummaryMock;

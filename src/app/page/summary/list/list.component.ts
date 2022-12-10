@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { LIST_COUNTRY } from 'src/app/common/constants';
 import { CountryModel } from 'src/app/model/country.model';
 import { DetailsComponent } from '../country/details/details.component';
 
@@ -16,12 +17,10 @@ export class ListComponent implements OnInit {
   }
   openDialog(countryCode: string): void {
     let dialogRef = this.dialog.open(DetailsComponent, {
-      width: '250px',
+      width: LIST_COUNTRY.WIDTH_DIALOG,
       data: { countryCode }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 }
