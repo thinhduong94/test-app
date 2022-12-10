@@ -1,0 +1,20 @@
+<table class="table">
+  <thead class="header">
+    <tr>
+      <th>No.</th>
+      <th>Country</th>
+      <th>Total Confirmed</th>
+      <th>Number Of Deaths</th>
+      <th>Number Of Recovered</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of contries; index as i;let odd = odd" (click)="openDialog(item.CountryCode)" [class]="odd ? 'tr-odd' : ''">
+      <td>{{i+1}}</td>
+      <td>{{item.Country}}</td>
+      <td class="text-right">{{item.TotalConfirmed | number}}</td>
+      <td class="text-right">{{item.TotalDeaths | number}}</td>
+      <td class="text-right">{{item.NewRecovered | number}}</td>
+    </tr>
+  </tbody>
+</table>

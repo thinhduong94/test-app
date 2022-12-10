@@ -1,0 +1,17 @@
+.header {
+    align-items: center;
+    display: flex;
+}
+.header div {
+    width: 50%;
+    float: left;
+}
+.right {
+    position: relative;
+}
+.right app-sort{
+    float: right;
+}
+.header span{
+    font-weight: bold;
+}

@@ -1,0 +1,12 @@
+<P mat-dialog-title class="text-bold">Country's Information</P>
+<div mat-dialog-content>
+  <p><img class="img" [src] = "country.flag"></p>
+  <p><span class="text-bold">Name:</span> {{country.name}}</p>
+  <p><span class="text-bold">Population:</span> {{country.population}}</p>
+  <p><span class="text-bold">Capital:</span> {{country.capital}}</p>
+  <p><span class="text-bold">Region:</span> {{country.region}}</p>
+  <p><span class="text-bold">Subregion:</span> {{country.subregion}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onNoClick()">Close</button>
+</div>

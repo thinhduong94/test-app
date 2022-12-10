@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Sort by</mat-label>
+  <mat-select #sorttemp (selectionChange)="onChange($event, sorttemp.value)">
+    <mat-option *ngFor="let item of items" [value]="item.id">
+      {{item.text}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

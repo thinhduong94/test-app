@@ -1,0 +1,6 @@
+<div class="header">
+    <div class="left"><span>{{'Summary' | uppercase}}</span></div>
+    <div class="right"><app-sort (sortItem)="sortItem($event)"></app-sort></div>
+</div>
+<app-list [contries]="contries"></app-list>
+<app-loading *ngIf = "showLoading" ></app-loading>
