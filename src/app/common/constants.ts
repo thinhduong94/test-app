@@ -25,7 +25,7 @@ export const SORT_VALUE = {
 export const SUMMARY_PAGE = {
     TOTAL_CONFIRMED_KEY: "TotalConfirmed",
     TOTAL_DEATHS_KEY: "TotalDeaths",
-    NEW_RECOVERED_KEY: "NewRecovered"
+    TOTAL_RECOVERED_KEY: "TotalRecovered"
 };
 export const LIST_COUNTRY_PAGE = {
     WIDTH_DIALOG: '250px'

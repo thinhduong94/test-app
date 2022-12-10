@@ -38,16 +38,17 @@ export class SummaryComponent implements OnInit {
     } 
   }
   private mostTotalConfirmedCases() {
-    this.contries = this.sortProperty(this.originalResult.Countries, SUMMARY_PAGE.TOTAL_CONFIRMED_KEY);
+    this.contries = this.sortProperty(this.originalResult.Countries, SUMMARY_PAGE.TOTAL_CONFIRMED_KEY, true);
   }
   private highestNumberOfDeaths() {
-    this.contries = this.sortProperty(this.originalResult.Countries, SUMMARY_PAGE.TOTAL_DEATHS_KEY);
+    this.contries = this.sortProperty(this.originalResult.Countries, SUMMARY_PAGE.TOTAL_DEATHS_KEY, true);
   }
   private leastNumberOfRecoveredCases() {
-    this.contries = this.sortProperty(this.originalResult.Countries, SUMMARY_PAGE.NEW_RECOVERED_KEY);
+    this.contries = this.sortProperty(this.originalResult.Countries, SUMMARY_PAGE.TOTAL_RECOVERED_KEY, false);
   }
-  private sortProperty(array = [], key = '') {
-    return array.sort((a,b)=>b[key] - a[key]);
+  private sortProperty(array = [], key = '', isDecrease = false) {
+    const decrease = isDecrease ? 1 : -1;
+    return array.sort((a,b)=>(b[key] - a[key])*decrease);
   }
   private getSummary() {
     this.showLoading = true;
