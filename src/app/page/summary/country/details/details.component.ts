@@ -12,13 +12,13 @@ export class DetailsComponent implements OnInit {
     public dialogRef: MatDialogRef<DetailsComponent>,
     private countryService: CountryService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
-      const {countryCode = ''} = data || {};
-      this.countryService.getDetails(countryCode).subscribe((result)=>{
-        this.country = result;
-        console.log(result);
-      });
+    const { countryCode = '' } = data || {};
+    this.countryService.getDetails(countryCode).subscribe((result) => {
+      this.country = result;
+      console.log(result);
+    });
   }
-  ngOnInit() {}
+  ngOnInit() { }
   onNoClick(): void {
     this.dialogRef.close();
   }

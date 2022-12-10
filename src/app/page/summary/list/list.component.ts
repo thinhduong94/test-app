@@ -16,11 +16,10 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
   openDialog(countryCode: string): void {
-    let dialogRef = this.dialog.open(DetailsComponent, {
+    const dialogRef = this.dialog.open(DetailsComponent, {
       width: LIST_COUNTRY_PAGE.WIDTH_DIALOG,
       data: { countryCode }
     });
-
-    dialogRef.afterClosed().subscribe(result => {});
+    dialogRef.afterClosed().subscribe(result => { });
   }
 }

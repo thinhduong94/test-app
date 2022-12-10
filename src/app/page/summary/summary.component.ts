@@ -18,9 +18,9 @@ export class SummaryComponent implements OnInit {
   constructor(private countryService: SummaryService) {
     this.getSummary();
   }
-  ngOnInit() {}
+  ngOnInit() { }
   sortItem(item: string) {
-    switch(item) {
+    switch (item) {
       case SORT_VALUE.A:
         this.getSummary();
         break;
@@ -35,7 +35,7 @@ export class SummaryComponent implements OnInit {
         break;
       default:
         this.getSummary();
-    } 
+    }
   }
   private mostTotalConfirmedCases() {
     this.contries = this.sortProperty(this.originalResult.Countries, SUMMARY_PAGE.TOTAL_CONFIRMED_KEY, true);
@@ -48,13 +48,13 @@ export class SummaryComponent implements OnInit {
   }
   private sortProperty(array = [], key = '', isDecrease = false) {
     const decrease = isDecrease ? 1 : -1;
-    return array.sort((a,b)=>(b[key] - a[key])*decrease);
+    return array.sort((a, b) => (b[key] - a[key]) * decrease);
   }
   private getSummary() {
     this.showLoading = true;
-    this.countryService.getSummary().subscribe((result)=>{
-      const {Countries = [], Message = ''} = result || {};
-      if(Message.length > 0) {
+    this.countryService.getSummary().subscribe((result) => {
+      const { Countries = [], Message = '' } = result || {};
+      if (Message.length > 0) {
         this.message = Message;
         (result as any) = SummaryMock;
       }
