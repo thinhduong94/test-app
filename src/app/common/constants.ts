@@ -1,4 +1,4 @@
-export const Sort_Value = [
+export const SORT_ITEMS = [
     {
         id: "A",
         text: "Refresh list"
@@ -21,12 +21,12 @@ export const SORT_VALUE = {
     B: "B",
     C: "C",
     D: "D",
-}
+};
 export const SUMMARY_PAGE = {
     TOTAL_CONFIRMED_KEY: "TotalConfirmed",
     TOTAL_DEATHS_KEY: "TotalDeaths",
     NEW_RECOVERED_KEY: "NewRecovered"
-}
-export const LIST_COUNTRY = {
+};
+export const LIST_COUNTRY_PAGE = {
     WIDTH_DIALOG: '250px'
-}
+};

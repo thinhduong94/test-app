@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Sort_Value } from 'src/app/common/constants';
+import { SORT_ITEMS } from 'src/app/common/constants';
 
 @Component({
   selector: 'app-sort',
@@ -13,7 +13,7 @@ export class SortComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.items = Sort_Value;
+    this.items = SORT_ITEMS;
   }
   
   onChange(event, value: string) {
