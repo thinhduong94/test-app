@@ -14,6 +14,7 @@ export class SummaryComponent implements OnInit {
   showLoading: boolean = false;
   contries: CountryModel[] = [];
   originalResult: SummaryModel;
+  message: string = '';
   constructor(private countryService: SummaryService) {
     this.getSummary();
   }
@@ -48,11 +49,13 @@ export class SummaryComponent implements OnInit {
   private getSummary() {
     this.showLoading = true;
     this.countryService.getSummary().subscribe(result=>{
-      if(result.Message.length > 0) {
+      const {Countries = [], Message = ''} = result || {}
+      if(Message.length > 0) {
+        this.message = Message;
         (result as any) = SummaryMock;
       }
       this.originalResult = result;
-      this.contries = result.Countries;
+      this.contries = Countries;
       this.showLoading = false;
     });
   }

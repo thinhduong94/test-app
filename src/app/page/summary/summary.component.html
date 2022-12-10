@@ -2,5 +2,6 @@
     <div class="left"><span>{{'Summary' | uppercase}}</span></div>
     <div class="right"><app-sort (sortItem)="sortItem($event)"></app-sort></div>
 </div>
+<p class="error" *ngIf = "message.length > 0">{{message}} so we are using mock data !</p>
 <app-list [contries]="contries"></app-list>
 <app-loading *ngIf = "showLoading" ></app-loading>

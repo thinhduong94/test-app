@@ -17,7 +17,7 @@ export class ListComponent implements OnInit {
   openDialog(countryCode: string): void {
     let dialogRef = this.dialog.open(DetailsComponent, {
       width: '250px',
-      data: { countryCode: countryCode }
+      data: { countryCode }
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -12,7 +12,8 @@ export class DetailsComponent implements OnInit {
     public dialogRef: MatDialogRef<DetailsComponent>,
     private countryService: CountryService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
-      this.countryService.getDetails(data.countryCode).subscribe((result)=>{
+      const {countryCode = ''} = data || {};
+      this.countryService.getDetails(countryCode).subscribe((result)=>{
         this.country = result;
         console.log(result);
       });
